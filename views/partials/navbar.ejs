@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <!-- Site tagline left -->
+    <div class="navbar-brand mb-0 h1 text-white fs-5">
+      Shortify 🔗 <small class="text-white-50">Shrink. Share. Track. Simple & Fast!</small>
+    </div>
+
+    <!-- Social icons + auth buttons right -->
+    <div class="d-flex align-items-center">
+      <a href="https://github.com/sitangshu-tech" target="_blank" class="text-white fs-5 ms-3"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/sitangshu-maji-42a7b0315" target="_blank" class="text-white fs-5 ms-3"><i class="bi bi-linkedin"></i></a>
+      <a href="https://x.com/Sitangshu__" target="_blank" class="text-white fs-5 ms-3"><i class="bi bi-twitter"></i></a>
+      <a href="https://www.instagram.com/sitangshu__" target="_blank" class="text-white fs-5 ms-3"><i class="bi bi-instagram"></i></a>
+
+      <% if (user) { %>
+        <span class="text-white ms-4 me-2">Hi, <%= user.email %></span>
+        <a href="/logout" class="btn btn-outline-light btn-sm">Logout</a>
+      <% } else { %>
+        <a href="/login" class="btn btn-outline-light btn-sm ms-4 me-2">Login</a>
+        <a href="/signup" class="btn btn-outline-light btn-sm">Signup</a>
+      <% } %>
+    </div>
+  </div>
+</nav>
