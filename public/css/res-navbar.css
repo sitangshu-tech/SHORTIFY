@@ -1,0 +1,45 @@
+/* ======= Navbar Custom Styling ======= */
+.navbar-brand small {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.navbar .btn-sm {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.6rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .navbar-brand {
+    text-align: left;
+  }
+
+  .navbar-brand small {
+    font-size: 0.65rem;
+  }
+
+  .d-flex.align-items-center {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navbar .btn {
+    margin-top: 0.5rem;
+  }
+
+  .navbar .fs-5 {
+    font-size: 1rem !important;
+  }
+
+  .navbar span {
+    font-size: 0.85rem;
+  }
+}

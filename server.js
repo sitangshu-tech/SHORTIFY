@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -7,16 +8,23 @@ const User = require('./models/User');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/urlShortener', {
-
+// MongoDB connection
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('✅ Connected to MongoDB Atlas');
+}).catch((err) => {
+  console.error('❌ MongoDB connection error:', err);
 });
 
+// Middleware setup
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/', require('./routes/auth'));
+app.use(express.static('public'));
 
-//  Make user available in all EJS templates
+// Load current user
 app.use(async (req, res, next) => {
   const sessionId = req.cookies.sessionId;
   if (sessionId) {
@@ -28,39 +36,33 @@ app.use(async (req, res, next) => {
   next();
 });
 
-//  Always redirect '/' to login
+// Routes
+app.use(authRoutes);
+
 app.get('/', (req, res) => {
   res.redirect('/login');
 });
 
-// Auth routes
-app.use(authRoutes);
-
-//  Dashboard (protected)
 app.get('/dashboard', async (req, res) => {
   if (!res.locals.user) return res.redirect('/login');
   const shortUrls = await ShortUrl.find();
   res.render('index', { shortUrls });
 });
 
-//  Create short URL (protected)
 app.post('/shortUrls', async (req, res) => {
   if (!res.locals.user) return res.redirect('/login');
   await ShortUrl.create({ full: req.body.fullUrl });
   res.redirect('/dashboard');
 });
 
-//  Short URL redirect
 app.get('/:shortUrl', async (req, res) => {
   const shortUrl = await ShortUrl.findOne({ short: req.params.shortUrl });
   if (shortUrl == null) return res.sendStatus(404);
-
   shortUrl.clicks++;
   shortUrl.save();
-
   res.redirect(shortUrl.full);
 });
 
 app.listen(process.env.PORT || 5000, () => {
-  console.log('Server started on http://localhost:5000');
+  console.log('🚀 Server started on http://localhost:5000');
 });

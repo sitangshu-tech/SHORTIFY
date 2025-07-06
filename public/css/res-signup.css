@@ -1,0 +1,50 @@
+/* Signup container spacing */
+.container {
+  max-width: 600px;
+  padding-top: 2rem;
+}
+
+/* Heading style */
+.container h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* Form input and button styling */
+form input {
+  font-size: 1rem;
+  padding: 0.6rem;
+}
+
+form button {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+}
+
+/* Footer style */
+footer small {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  form.w-50 {
+    width: 100% !important;
+  }
+
+  .container h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  form input,
+  form button {
+    font-size: 0.95rem;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,56 @@
+/* Login box styling */
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust form input and button */
+.login-box input,
+.login-box button {
+  font-size: 1rem;
+  padding: 0.65rem;
+}
+
+/* Adjust heading and links */
+.login-box h3 {
+  font-size: 1.5rem;
+}
+
+.login-box a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.login-box a:hover {
+  text-decoration: underline;
+}
+
+/* Footer text */
+.login-box .small {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .login-box {
+    padding: 20px;
+  }
+
+  .login-box h3 {
+    font-size: 1.25rem;
+  }
+
+  .login-box input,
+  .login-box button {
+    font-size: 0.95rem;
+  }
+
+  .login-box .small {
+    font-size: 0.75rem;
+  }
+}

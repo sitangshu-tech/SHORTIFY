@@ -1,0 +1,63 @@
+/* Dashboard heading */
+h2.text-info {
+  font-size: 1.75rem;
+}
+
+/* Form layout */
+form .form-control-lg {
+  font-size: 1rem;
+  padding: 0.75rem;
+}
+
+form .btn-lg {
+  font-size: 1rem;
+  padding: 0.75rem;
+}
+
+/* Table styling */
+.table th,
+.table td {
+  vertical-align: middle;
+  word-break: break-word;
+  font-size: 0.95rem;
+}
+
+.table td a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.table td a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  h2.text-info {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .row.g-3 {
+    flex-direction: column;
+  }
+
+  .col-md-9,
+  .col-md-3 {
+    width: 100%;
+  }
+
+  .form-control-lg,
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.65rem;
+  }
+
+  .table {
+    font-size: 0.85rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
